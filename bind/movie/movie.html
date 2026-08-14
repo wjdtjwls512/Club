@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="movle.css" />
+    <title>Movie List</title>
+  </head>
+  <body>
+    <h1>Movie List</h1>
+    <div id="movie_list"></div>
+
+    <script>
+      const movieContainer = document.querySelector('#movie_list');
+
+      async function loadMovieData() {
+        try {
+          const response = await fetch(
+            'https://jsonfakery.com/movies/paginated',
+          );
+          const movieData = await response.json();
+          const movieList = movieData.data || movieData;
+
+          movieContainer.innerHTML = movieList
+            .map(
+              (movieItem) => `
+            <section>
+              <h4>${movieItem.original_title}</h4>
+              <img src="${movieItem.poster_path}" alt="poster">
+            </section>
+          `,
+            )
+            .join('');
+        } catch (error) {
+          movieContainer.innerHTML = "<p>로딩 실패</p>";
+        }
+      }
+
+      loadMovieData();
+    </script>
+  </body>
+</html>

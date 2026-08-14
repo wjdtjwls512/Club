@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign up</title>
+    <link rel="icon" href="images/favicon.svg">
+    <link rel="stylesheet" href="login,signup.css" />
+  </head>
+  <body>
+    <main class="desktop-screen">
+      <h1>Sign up</h1>
+      <form class="form" action="#" method="POST">
+        <fieldset class="input-container">
+          <legend class="visually-hidden">로그인 정보 입력</legend>
+
+          
+          <input
+            type="text"
+            placeholder="username"
+            aria-label="유저이름"
+            required
+          />
+          <input
+            type="email"
+            placeholder="email"
+            aria-label="이메일"
+            required
+          />
+          <input
+            type="password"
+            placeholder="password"
+            aria-label="비밀번호"
+            minlength="8"
+            required
+          />
+          <input
+            type="password"
+            placeholder="confirm password"
+            aria-label="비밀번호"
+            minlength="8"
+            required
+          />
+        </fieldset>
+
+        <button type="submit" class="btn-signup">Sign up</button>
+      </form>
+      <a href="login.html" class="link">Log in</a>
+      <a href="main.html">
+        <img src="images/favicon.svg" alt="logo" class="logo" />
+      </a>
+    </main>
+  </body>
+  <script type="module" src="signup.js"></script>
+</html>

@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="quiz.css" />
+    <title>OX_QUIZ</title>
+  </head>
+  <body>
+    <header><h1>OX 퀴즈</h1></header>
+    <main>
+      <div class="main_content">
+        <p class="questions"></p>
+        <p class="content"></p>
+        <p class="timer">제한시간 :</p>
+      </div>
+    </main>
+    <footer>
+      <div class="buttons">
+        <button class="O">O</button><button class="X">X</button>
+      </div>
+    </footer>
+  </body>
+  <script>
+    const questionsArray = [
+      '1/10',
+      '2/10',
+      '3/10',
+      '4/10',
+      '5/10',
+      '6/10',
+      '7/10',
+      '8/10',
+      '9/10',
+      '10/10',
+      '완료',
+    ];
+    const questionsNumbers = document.querySelector('.questions');
+    questionsNumbers.innerHTML = questionsArray[0];
+
+    const quizes = [
+      { q: '코끼리는 점프를 할 수 없는 유일한 포유류다', a: true },
+      { q: '심장은 몸 밖으로 나와도 잠시 동안 계속 뛴다', a: true },
+      { q: '펭귄은 무릎이 없는 다리로 걷는다', a: false },
+      { q: '콜라는 원래 소화제 용도로 판매되었다', a: true },
+      { q: '소는 빨간색을 보면 화가 나서 달려든다', a: false },
+      { q: '달팽이는 이빨이 없다', a: false },
+      { q: '남극에는 북극곰이 살지 않는다', a: true },
+      { q: '금붕어의 기억력은 3초다', a: false },
+      { q: '문어는 심장을 3개 가지고 있다', a: true },
+      { q: '낙타의 혹 안에는 물이 가득 차 있다', a: false },
+    ];
+    const content = document.querySelector('.content');
+    content.innerHTML = quizes[0].q;
+    const button = document.getElementsByTagName('button');
+
+    let number = 0;
+    let score = 0;
+    let count = 10;
+
+    function showResult() {
+      let total = quizes.length;
+      let finalScore = (score / total) * 100;
+
+      content.innerHTML =
+        '<h1>최종 결과</h1>' +
+        '맞힌 개수: ' +
+        score +
+        ' / ' +
+        total +
+        '<br>' +
+        '최종 점수: ' +
+        finalScore +
+        '점';
+
+      button[1].innerHTML = '다시하기';
+      button[1].style.display = 'inline-block';
+      document.querySelector('.timer').style.display = 'none';
+    }
+
+    function nextContent() {
+      number = number + 1;
+
+      if (number < quizes.length) {
+        content.innerHTML = quizes[number].q;
+        questionsNumbers.innerHTML = questionsArray[number];
+        count = 10;
+      } else {
+        clearInterval(timerInterval);
+        const timerUI = document.querySelector('.timer');
+        if (timerUI) {
+          timerUI.style.display = 'none';
+        }
+
+        button[0].style.display = 'none';
+        button[1].innerHTML = '결과 확인';
+        content.innerHTML = '모든 문제를 풀었습니다!';
+        questionsNumbers.innerHTML = '완료';
+      }
+    }
+
+    button[0].addEventListener('click', () => {
+      if (quizes[number].a === true) {
+        score = score + 1;
+      }
+      nextContent();
+    });
+
+    button[1].addEventListener('click', () => {
+      if (button[1].innerHTML === '다시하기') {
+        location.reload();
+        return;
+      }
+
+      if (button[1].innerHTML === '결과 확인') {
+        showResult();
+        return;
+      }
+
+      if (quizes[number].a === false) {
+        score = score + 1;
+      }
+      nextContent();
+    });
+
+    const timerInterval = setInterval(() => {
+      const timer = document.querySelector('.timer');
+      if (timer.style.display !== 'none') {
+        timer.innerHTML = count;
+
+        if (count <= 0) {
+          nextContent();
+          timer.innerHTML = '*시간초과*';
+        } else {
+          count--;
+        }
+      }
+    }, 1000);
+  </script>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./js.css" />
+    <title>TODOLIST</title>
+  </head>
+  <body>
+    <div class="title_place">
+    <h1 class="title"></h1>
+    </div>
+    <main>
+      <input type="text" />
+      <button class="plus">입력</button>
+      <button class="del">삭제</button>
+      <ul class="todolist"></ul>
+    </main>
+  </body>
+  <script>
+    const h1 = document.querySelector('.title');
+    h1.innerHTML = 'To-Do List';
+
+    const input = document.getElementsByTagName('input');
+    const button = document.getElementsByTagName('button');
+    const ul = document.getElementsByClassName('todolist');
+    function addTodo() {
+      const li = document.createElement('li');
+      li.innerHTML = input[0].value;
+      ul[0].appendChild(li);
+      input[0].value = '';
+    }
+
+    button[0].addEventListener('click', addTodo);
+
+    function remove() {
+      const ul = document.querySelector('.todolist');
+      ul.lastElementChild.remove();
+    }
+
+    button[1].addEventListener('click', remove);
+  </script>
+</html>

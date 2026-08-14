@@ -1,0 +1,93 @@
+#boxWrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Pretendard';
+    margin-top: 20px;
+    gap: 30px;
+}
+.box{
+    color: black;
+    text-decoration: none;
+    box-sizing: border-box;
+    display: block;
+    width: 80%;
+    box-shadow: 0px 1px 4px 0px #C3C3C3;
+    border-radius: 20px;
+    border: 2px solid #C3C3C3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 30px;
+    transition-duration: 0.2s;
+}
+.box:hover{
+    transform: translateY(-1px) scale(1.005);
+}
+.writerProfile{
+    display: flex;
+    align-self: flex-start;
+    align-items: center;
+    gap: 5px;
+}
+.writerProfile img{
+    width: 45px;
+}
+.box h5{
+    font-size: 30px;
+}
+.content{
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    padding:20px 0px;
+}
+#pagination{
+    margin:50px 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    list-style: none;
+}
+#pagination li a{
+    text-decoration: none;
+    color: gray;
+}
+#pagination #nowPage>a{
+    color: black;
+}
+#pagination li a:hover{
+    text-decoration: underline;
+}
+#writeButton{
+    background-color: #FFD600;
+    border-radius: 40px;
+    color: black;
+    text-decoration: none;
+    font-size: 30px;
+    padding: 8px 24px;
+    font-weight: 500;
+    box-shadow: 0px 2px 3px -1px rgb(164, 164, 164);
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    transition-duration: 0.2s;
+}
+#writeButton:hover{
+    transform:translateY(-3px);
+    box-shadow: 0px 1px 5px -3px rgb(107, 107, 34);
+    background-color: #ffe100;
+}
+.heartAndComment{
+    display: flex;
+    align-self: self-start;
+    gap: 30px;
+    margin-bottom: 10px;
+}
+.heartAndComment div{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}

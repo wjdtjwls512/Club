@@ -1,0 +1,162 @@
+#main {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.info {
+    height: 500px;
+    border: 1px solid #C3C3C3;
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+
+#left-info {
+    width: 800px;
+    position: relative;
+    padding: 40px;
+}
+
+#right-info {
+    width: 400px;
+    height: 500px;
+    padding: 25px;
+    box-sizing: border-box;
+    overflow-y: auto; 
+    display: flex;
+    flex-direction: column;
+    scrollbar-width: none;
+}
+
+#postTitle {
+    margin: 25px 0;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#editDel{
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    top: 420px;
+}
+
+#editDel button{
+    font-size: 18px;
+    padding: 3px 6px;
+    border: none;
+    border-radius: 5px;
+}
+
+#delButton:hover{
+    background-color: red;
+}
+
+#icon1 {
+    position: absolute;
+    top: 420px;
+    left: 530px;
+}
+
+#icon2 {
+    position: absolute;
+    top: 420px;
+    left: 630px;
+}
+
+.left-info-icon {
+    width: 25px;
+}
+
+.mini-user {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.mini-pika-img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.Comment {
+    margin-bottom: 30px;
+}
+
+.Comment > p {
+    margin: 10px 0 10px 35px;
+}
+
+.comment {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mini-icon {
+    width: 20px;
+    height: 20px;
+}
+
+#inputDiv {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 0 10px;
+    box-sizing: border-box;
+    width: 350px;
+    height: 40px;
+    border: 0.5px solid #C3C3C3;
+    border-radius: 29px;
+    background-color: white;
+    position: sticky;
+    bottom: 0;
+    margin-top: auto;
+    z-index: 100;
+}
+
+#inputDiv > img {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+#inputDiv > input {
+    width: 250px;
+    height: 35px;
+    border: none;
+    outline: none;
+}
+
+#inputDiv > button {
+    width: 50px;
+    height: 25px;
+    border: none;
+    border-radius: 29px;
+    background-color: #FFD601;
+}
+
+.left-info-icon:hover, .mini-icon:hover, button:hover {
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(130, 200, 15);
+}
+
+.comment-date, .postData {
+    font-size: 11px;
+    color: #999;
+    margin-left: 4px;
+}
+
+.commentHeartWrap{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
