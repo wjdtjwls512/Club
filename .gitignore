@@ -1,0 +1,12 @@
+# OS 생성 파일
+.DS_Store
+
+# IDE / 에디터 설정
+.idea/
+.vscode/
+
+# Node 패키지 (프론트엔드/백엔드 JS 사용 시)
+node_modules/
+
+# 환경변수 (비밀번호, API 키 등)
+.env
